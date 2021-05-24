@@ -29,13 +29,13 @@ It is a machine learning based approach where a cascade function is trained from
 ### LBP Cascade Classifier
 LBP is a texture descriptor and face is composed of micro texture patterns. So LBP features are extracted to form a feature vector to classify a face from a non-face. Following are the basic steps of LBP Cascade classifier algorithm:
 
-LBP Labelling: A label as a string of binary numbers is assigned to each pixel of an image.
+1) LBP Labelling: A label as a string of binary numbers is assigned to each pixel of an image.
 
-Feature Vector: Image is divided into sub-regions and for each sub-region, a histogram of labels is constructed. Then, a feature vector is formed by concatenating the sub-regions histograms into a large histogram.
+2) Feature Vector: Image is divided into sub-regions and for each sub-region, a histogram of labels is constructed. Then, a feature vector is formed by concatenating the sub-regions histograms into a large histogram.
 
-AdaBoost Learning: Strong classifier is constructed using gentle AdaBoost to remove redundant information from feature vector.
+3) AdaBoost Learning: Strong classifier is constructed using gentle AdaBoost to remove redundant information from feature vector.
 
-Cascade of Classifier: The cascades of classifiers are formed from the features obtained by the gentle AdaBoost algorithm. Sub-regions of the image is evaluated starting from simpler classifier to strong classifier. If on any stage classifier fails, that region will be discarded from further iterations. Only the facial region will pass all the stages of the classifier.
+4) Cascade of Classifier: The cascades of classifiers are formed from the features obtained by the gentle AdaBoost algorithm. Sub-regions of the image is evaluated starting from simpler classifier to strong classifier. If on any stage classifier fails, that region will be discarded from further iterations. Only the facial region will pass all the stages of the classifier.
 
 ### How to train model with your face?
 Down the repository and after that run the face_extraction.py. It will use harcascade classifier to detect your face. After that using cv2.VideoCapture, it will capture 100 
@@ -44,3 +44,9 @@ images of your face which will be saved in s3 folder inside images.
 ### How to run this model?
 
 To run  face_detection.py to run the model. Also if you're trying to detect your own face you can make changes in the Subject list in the file and save an image by 1.3 in test-data folder showing your face.
+Once the image has been trained and run, final output will show up like this
+
+<img width="527" alt="Capture" src="https://user-images.githubusercontent.com/66120808/119312481-0a2f6200-bc38-11eb-8e23-723de32d76f8.PNG">
+<img width="200" alt="Capture_1" src="https://user-images.githubusercontent.com/66120808/119312487-0c91bc00-bc38-11eb-9ae5-4acdcf9e7985.PNG">
+<img width="196" alt="Capture_3" src="https://user-images.githubusercontent.com/66120808/119312499-0ef41600-bc38-11eb-8c5d-9131a7df0489.PNG">
+
